@@ -1,13 +1,6 @@
-<p style = 'color: green'><%= notice %> </p>
-
-<h1> Restaurants </h1>
-
-<div id= "restaurants">
-  <%restaurants.<% items.each do |restaurant| %>
+<div id="restaurants">
+  <% @restaurants.each do |restaurant| %>
     <%= render restaurant %>
-    </p>
-    <%= link_to "show this restaurant", restaurants %>
-    </p>
-    <% end %>
-    </div>
-   <%= link_to "New restaurant", new_restaurant_path %>
+    <%= link_to "show this restaurant", restaurant_path(restaurant) %>
+  <% end %>
+</div>
