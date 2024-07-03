@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="restaurant-content">
+    <div class="row">
+      <div class="col-lg-6">
+        <img class="img-restaurant-show" src="<%= @restaurant.image %>" >
+      </div>
+      <div class="col-lg-6">
+        <h1 class="restaurant-name-show">
+          <%= @restaurant.name %>
+        </h1>
+
+        <h3>User's review</h3>
+        <% @restaurant.reviews.each do |review| %>
+           <span>
+             <p class="user-review"><%= review.content %></p>
+           </span>
+        <% end %>
+
+        <div class="btns">
+          <span class="btn-remove">
+          <%= link_to "Add a new review", new_restaurant_review_path(@restaurant), class: 'btn-add-review' %>
+        </span>
+          <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant), class: 'btn-edit-restaurant' %>
+
+          <%= link_to "Delete restaurant", destroy_restaurant_path(@restaurant), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn-delete-restaurant' %>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
